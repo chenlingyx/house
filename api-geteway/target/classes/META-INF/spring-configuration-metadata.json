@@ -1,0 +1,37 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.cl.house.api.config.HttpClientProperties",
+      "name": "spring.httpclient",
+      "type": "com.cl.house.api.config.HttpClientProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.cl.house.api.config.HttpClientProperties",
+      "name": "spring.httpclient.agent",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.cl.house.api.config.HttpClientProperties",
+      "name": "spring.httpclient.connect-time-out",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.cl.house.api.config.HttpClientProperties",
+      "name": "spring.httpclient.max-conn-per-route",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.cl.house.api.config.HttpClientProperties",
+      "name": "spring.httpclient.max-conn-totaol",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.cl.house.api.config.HttpClientProperties",
+      "name": "spring.httpclient.socket-time-out",
+      "type": "java.lang.Integer"
+    }
+  ]
+}

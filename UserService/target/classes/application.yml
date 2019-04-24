@@ -1,0 +1,15 @@
+server:  port: 8083
+  
+spring:   sleuth:     sampler:         percentage: 1            zipkin:     baseUrl: http://localhost:9411        mail:      host: smtp.163.com      username: chenlingyx520@163.com      password: 802139chenling      port: 25      smtp:         auth: true        starttls:            enable: true           required: true   redis:    pool:      max-active: 3    host: localhost    port: 6379    timeout: 6000   application:       name: user-service   druid:        driverClassName: com.mysql.jdbc.Driver        username: chenling        password: chenling        url: jdbc:mysql://localhost:3306/user?characterEncoding=UTF-8&useSSL=false        #最大连接数        maxActive: 30        #最小连接数        minIdle: 5        #最大等待时间        maxWait: 10000        #解决mysql 8小时问题        validationQuery: SELECT 'X'        #空闲连接检查时间        timeBetweenEvictionRunsMillis: 60000        #空闲连接最小空闲时间        minEvictableIdleTimeMillis: 300000        borrowConnectionTimeout: 30000    
+ ###服务注册到eureka地址    
+eureka:  client:    service-url:            defaultZone:  http://localhost:8666/eureka/
+  instance:
+        #发送心跳检查间隔时间（秒）默认30秒    lease-expiration-duration-in-seconds: 5  
+        #服务过去时间（秒），默认90秒
+    lease-renewal-interval-in-seconds: 10    ##健康检查上报
+    healthcheck:
+        enabled: true      register-with-eureka: true
+    ###是否需要从eureka上获取注册信息
+    fetch-registry: true
+mybatis:  config-location: classpath:/mybatis/mybatis-config.xml#定义文件路径file.path: D:\nginxFile\opt\imagesfile.prefix: http://127.0.0.1:8088/imagesdomain.name: 127.0.0.1:${server.port}user.service.name: user-servicehouse.service.name: house-servicecomment.service.name: comment-service
+ 

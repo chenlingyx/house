@@ -1,0 +1,92 @@
+server:
+  port: 8080
+  
+management:
+       port: 8023
+
+spring:
+   sleuth:
+     sampler:
+         percentage: 1
+   zipkin:
+     baseUrl: http://localhost:9411
+
+   boot:
+     admin.url: http://localhost:8070
+
+   mail:
+      host: smtp.163.com
+      username: chenlingyx520@163.com
+      password: 802139chenling
+      port: 25
+      smtp: 
+        auth: true
+        starttls: 
+           enable: true
+           required: true
+           
+   redis:
+      host: localhost
+      pool:
+       max-active: 3
+      port: 6379
+      timeout: 6000
+   application:    name: api-geteway  
+   
+  ##配置freemarker模板
+    freemarker:
+        cache: true
+        charset: UTF-8
+        content-type: text/html; charset=utf-8  
+        expose-request-attributes: true
+        expose-session-attributes: true
+        expose-spring-macro-helpers: true
+        allow-session-override: true
+        suffix: .ftl
+        settings:
+            number_format: 0.##########
+            datetime_format: yyyy-MM-dd HH:mm:ss
+            default_encoding: UTF-8
+            auto_import: common/common.ftl as common
+            template_exception_handler: ignore
+            template_update_delay: 0
+    
+        
+#定义文件路径
+file.path: D:\nginxFile\opt\images
+file.prefix: http://127.0.0.1:8088/images
+
+domain.name: 127.0.0.1:${server.port}
+    
+eureka:  client:    service-url:
+        defaultZone: http://localhost:8666/eureka
+        
+    register-with-eureka: false
+hystrix:
+    threadpool:
+          default:
+              coreSize: 1
+              maxQueueSize: 1
+              maximumSize: 1
+              
+    command:
+       default:
+          circuitBreaker:
+                errorThresholdPercentage: 1
+                sleepWindowInMilliseconds: 10000
+          execution:
+              isolation:
+                    thread:
+                       timeoutInMilliseconds: 1
+
+logging:
+    config: classpath:log4j2.xml
+    write:
+      level: TRACE
+    format:
+       style: http
+       
+user.service.name: user-service
+house.service.name: house-service
+comment.service.name: comment-service
+      
